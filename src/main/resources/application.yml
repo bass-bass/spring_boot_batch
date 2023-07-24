@@ -1,0 +1,11 @@
+spring:
+profiles:
+active: product
+jmx:
+enabled: false
+---
+## Batch properties
+properties:
+  hoge:
+    hogehoge: hogehoge
+    hugahuga: hugahuga
