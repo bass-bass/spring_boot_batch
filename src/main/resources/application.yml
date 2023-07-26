@@ -1,8 +1,8 @@
 spring:
-profiles:
-active: product
-jmx:
-enabled: false
+  profiles:
+    active: product
+  jmx:
+    enabled: false
 ---
 ## Batch properties
 properties:
