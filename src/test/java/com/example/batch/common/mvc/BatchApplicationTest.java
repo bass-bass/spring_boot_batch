@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import com.example.batch.SpringBatchApplication;
 import com.example.batch.common.util.ClassPath;
 
 class BatchApplicationTest {
@@ -23,6 +24,19 @@ class BatchApplicationTest {
 		}
 
 		System.out.println("target package [" + packageName + "] class num. ->" + allClasses.size());
+	}
+
+	@Test
+	void mainTest() throws Exception{
+		String[] _args = new String[] {
+				"hoge", "huga",
+				"-message", "hello"
+		};
+
+		JobForm form = new JobForm(_args);
+		System.out.println("control -> "+form.getControl());
+		System.out.println("action -> "+form.getAction());
+		SpringBatchApplication.main(_args);
 	}
 
 }
