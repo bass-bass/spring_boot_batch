@@ -1,0 +1,16 @@
+name: reviewdog-suggester
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  kotlin:
+    name: runner / suggester / formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: mvn formatter:format
+      - uses: reviewdog/action-suggester@v1
+        with:
+          tool_name: formatter
