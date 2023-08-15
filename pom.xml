@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<mockito.version>4.4.0</mockito.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -31,6 +32,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-inline</artifactId>
+			<version>${mockito.version}</version>
 		</dependency>
 
 		<!-- StringUtils -->
@@ -64,13 +77,25 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-			<!-- formatter -->
+			<!-- spotless-->
 			<plugin>
-				<groupId>net.revelc.code.formatter</groupId>
-				<artifactId>formatter-maven-plugin</artifactId>
-				<version>2.21.0</version>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>2.38.0</version>
 				<configuration>
-					<configFile>google_format.xml</configFile>
+					<java>
+						<includes>
+							<include>src/main/java/**/*.java</include>
+							<include>src/test/java/**/*.java</include>
+						</includes>
+						<eclipse>
+							<file>google_format.xml</file>
+						</eclipse>
+						<importOrder>
+							<order>java,javax,org,com,lombok|it|io.swagger|,jp.*</order>
+						</importOrder>
+						<removeUnusedImports/>
+					</java>
 				</configuration>
 			</plugin>
 		</plugins>
