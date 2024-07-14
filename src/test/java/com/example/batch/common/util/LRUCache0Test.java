@@ -1,9 +1,7 @@
-package com.example.batch.common.mvc;
+package com.example.batch.common.util;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import com.example.batch.common.util.LRUCache0;
 
 public class LRUCache0Test {
 	@Test
